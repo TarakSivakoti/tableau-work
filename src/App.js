@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Dataviz from "./Dataviz";
+// import Dataviz from "./Dataviz";
 import Singleviz from "./singleviz";
 
 // function App(){
@@ -25,35 +25,40 @@ import Singleviz from "./singleviz";
 // export default App;
 
 export default class App extends Component {
-                 constructor(props) {
-                   super(props);
-                   this.state = {
-                     count: 0
-                   };
-                   this.increment = this.increment.bind(this);
-                   this.decrement = this.decrement.bind(this);
-                 }
-                 increment() {
-                  this.setState({
-                    count: this.state.count === 4 ? 0 : this.state.count +1
-                  },()=>{console.log('callback',this.state.count)});
-                  console.log("callbackout", this.state.count);
-                 }
-                 decrement() {
-                   this.setState({
-                     count: this.state.count === 0 ? 4 : this.state.count-1
-                   });
-                 }
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+  }
+  increment() {
+    this.setState(
+      {
+        count: this.state.count === 4 ? 0 : this.state.count + 1
+      },
+      () => {
+        console.log("callback", this.state.count);
+      }
+    );
+    console.log("callbackout", this.state.count);
+  }
+  decrement() {
+    this.setState({
+      count: this.state.count === 0 ? 4 : this.state.count - 1
+    });
+  }
 
-                 render() {
-                   return (
-                     <div className="App-header">
-                       <Singleviz count={this.state.count} />
-                       <div>
-                         <button onClick={this.decrement}>Previous</button>
-                         <button onClick={this.increment}>Next</button>
-                       </div>
-                     </div>
-                   );
-                 }
-               }
+  render() {
+    return (
+      <div className="App-header">
+        <Singleviz count={this.state.count} />
+        <div>
+          <button onClick={this.decrement}>Previous</button>
+          <button onClick={this.increment}>Next</button>
+        </div>
+      </div>
+    );
+  }
+}
