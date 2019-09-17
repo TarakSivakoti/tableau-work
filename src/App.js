@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Dataviz from "./Dataviz";
+import Singleviz from "./singleviz";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// function App(){
+//    const vizList = [
+//      "http://public.tableau.com/views/RegionalSampleWorkbook/Flights",
+//      "http://public.tableau.com/views/RegionalSampleWorkbook/Obesity",
+//      "http://public.tableau.com/views/RegionalSampleWorkbook/College",
+//      "http://public.tableau.com/views/RegionalSampleWorkbook/Stocks",
+//      "http://public.tableau.com/views/RegionalSampleWorkbook/Storms"
+//    ];
+//     const dataViz = vizList.map((number, index) => (
+//       <Dataviz url={number} index={index}/>
+//     ));
 
-export default App;
+//   return (
+//     <div className="App-header">
+//       {dataViz}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+export default class App extends Component {
+                 constructor(props) {
+                   super(props);
+                   this.state = {
+                     count: 0
+                   };
+                   this.increment = this.increment.bind(this);
+                   this.decrement = this.decrement.bind(this);
+                 }
+                 increment() {
+                  this.setState({
+                    count: this.state.count === 4 ? 0 : this.state.count +1
+                  },()=>{console.log('callback',this.state.count)});
+                  console.log("callbackout", this.state.count);
+                 }
+                 decrement() {
+                   this.setState({
+                     count: this.state.count === 0 ? 4 : this.state.count-1
+                   });
+                 }
+
+                 render() {
+                   return (
+                     <div className="App-header">
+                       <Singleviz count={this.state.count} />
+                       <div>
+                         <button onClick={this.decrement}>Previous</button>
+                         <button onClick={this.increment}>Next</button>
+                       </div>
+                     </div>
+                   );
+                 }
+               }
