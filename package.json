@@ -7,6 +7,7 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "tableau": "0.0.3",
+    "tableau-api": "^2.2.3",
     "tableau-react": "^1.2.1"
   },
   "scripts": {

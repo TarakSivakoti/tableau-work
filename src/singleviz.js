@@ -6,11 +6,13 @@ class Singleviz extends Component {
     super(props);
     this.state = {
       vizUrl: [
+        "http://public.tableausoftware.com/views/WorldIndicators/GDPpercapita",
         "http://public.tableau.com/views/RegionalSampleWorkbook/Flights",
         "http://public.tableau.com/views/RegionalSampleWorkbook/Obesity",
         "http://public.tableau.com/views/RegionalSampleWorkbook/College",
         "http://public.tableau.com/views/RegionalSampleWorkbook/Stocks",
         "http://public.tableau.com/views/RegionalSampleWorkbook/Storms"
+     
       ]
     };
   }
