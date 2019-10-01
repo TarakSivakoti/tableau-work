@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 // import Dataviz from "./Dataviz";
 import Singleviz from "./components/singleviz";
+import FilterViz from "./components/filterViz";
 
 // function App(){
 //    const vizList = [
@@ -53,7 +54,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="App-header">
-        <Singleviz count={this.state.count} />
+        {/* <Singleviz count={this.state.count} /> */}
+        <FilterViz />
         <div>
           <button onClick={this.decrement}>Previous</button>
           <button onClick={this.increment}>Next</button>
