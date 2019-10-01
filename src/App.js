@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 // import Dataviz from "./Dataviz";
-import Singleviz from "./singleviz";
+import Singleviz from "./components/singleviz";
 
 // function App(){
 //    const vizList = [
