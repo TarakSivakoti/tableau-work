@@ -6,8 +6,24 @@ const containerStyle = {
     height: '700px'
 };
 const controlStyle = {
-    padding: '20px'
+    marginTop: '42px',
+    marginBottom: '53px'
 };
+const dropdownStyle = {
+    borderRadius: '12px',
+    width: '100px',
+    height: '30px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    background: 'aliceblue'
+}
+const spanStyle = {
+    fontWeight: 'bold',
+    color: 'darkorange',
+    fontSize: '120%',
+    fontFamily: 'sans-serif'
+
+}
 class FilterViz extends Component {
     constructor(props) {
         super(props);
@@ -47,14 +63,14 @@ class FilterViz extends Component {
     render() {
         return (
             <div>
-                <div id="vizContainer" style={containerStyle}></div>
                 <div id="controls" style={controlStyle}>
-                    Year: <select id="changeYear" onChange={this.yearFilter}>
+                    <span style={spanStyle}>Year: </span> <select id="changeYear" onChange={this.yearFilter} style={dropdownStyle}>
                         <option value="">All</option>
                         <option value="2013">2013</option>
                         <option value="2014">2014</option>
                     </select>
                 </div>
+                <div id="vizContainer" style={containerStyle}></div>
             </div>
         );
     }
